@@ -1,6 +1,3 @@
-# nextsong
-Next Song
-
 ## Next Song Program
 
 This is a program that utilizes the Spotipy library to generate song recommendations based on user input. The program allows users to enter their Spotify client ID and client secret, along with a song name, target tempo, and target key in Camelot notation. It then retrieves recommendations from Spotify's API and displays them in a list.
@@ -18,6 +15,18 @@ You can install these libraries using pip:
 pip install spotipy
 pip install tkinter
 ```
+
+### Obtaining Spotify Client ID and Client Secret
+
+To use the Spotify API, you need to obtain a client ID and client secret from the Spotify Developer Dashboard. Here's how you can acquire your own Spotify credentials:
+
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in with your Spotify account or create a new account if you don't have one.
+
+2. Create a new application by clicking on the "Create an App" button.
+
+3. Fill in the required information for your application, including the name and description. You can also add a logo if you wish.
+
+4. After creating the application, you will be redirected to the application dashboard. Here, you can find your client ID and client secret under the "Client ID" and "Client Secret" sections, respectively.
 
 ### Usage
 
@@ -73,7 +82,9 @@ def get_recommendation():
     target_tempo = tempo_entry.get()
     target_key = camelot_key_mapping.get(key_entry.get().upper())
 
-    if not client_id or not client_secret:
+    if not client_id or not
+
+ client_secret:
         messagebox.showerror('Error', 'Please enter your Spotify client ID and client secret.')
         return
 
@@ -92,9 +103,7 @@ def get_recommendation():
 
     if results['tracks']['items']:
         track = results['tracks']['items'][0]
-        recs = sp.recommendations(seed_tracks=[track['id']], target_tempo=target_tempo
-
-, target_key=target_key)  # get recommendations based on the song
+        recs = sp.recommendations(seed_tracks=[track['id']], target_tempo=target_tempo, target_key=target_key)  # get recommendations based on the song
         if recs['tracks']:
             recommended_songs.delete(0, tk.END)
             for song in recs['tracks']:
@@ -124,17 +133,30 @@ root.title('Next Song')
 style = ttk.Style(root)
 style.theme_use('clam')
 
-main_frame = ttk.Frame(root, padding="10")
-main_frame.pack()
-
 # GUI elements...
 
 root.mainloop()
 ```
 
+### Obtaining Your Spotify Client ID and Client Secret
+
+To use the Next Song program, you need to obtain your own Spotify client ID and client secret. Follow these steps to acquire your credentials:
+
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in with your Spotify account or create a new account if you don't have one.
+
+2. Click on the "Create an App" button to create a new application.
+
+3. Provide a name and description for your application, and optionally, upload a logo.
+
+4. Once your application is created, you will see your client ID and client secret on the application dashboard.
+
+5. Copy your client ID and client secret and use them when running the Next Song program.
+
+Make sure to keep your client secret secure and avoid sharing it publicly or committing it to version control.
+
 ### Conclusion
 
-This program allows you to generate song recommendations based on a given song name, target tempo, and target key. It utilizes the Spotipy library to interact with Spotify's API and retrieve recommendations. The program also provides functionality to display detailed information about each recommended song and open it on Spotify.
+This program allows you to generate song recommendations based on a given song name, target tempo, and target key. To use the program, you need to obtain your own Spotify client ID and client secret from the Spotify Developer Dashboard. Follow the instructions provided in the README to obtain your credentials and run the program successfully.
 
 Feel free to customize and improve the program according to your needs. Enjoy exploring new music with the Next Song program!
 
